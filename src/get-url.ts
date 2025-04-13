@@ -9,13 +9,13 @@ export default function getURL(
     version: string  
   }
 ): string {
-  let extendedStr = '';
-  if (options.extended === 'true') {
-    extendedStr = 'extended_';
-  }
   let withdeployStr = '';
   if (options.withdeploy === 'true') {
     withdeployStr = 'withdeploy_';
+  }
+  let extendedStr = '';
+  if (options.extended === 'true' || withdeployStr) {
+    extendedStr = 'extended_';
   }
   let ext = 'tar.gz';
   if (system.os === 'Windows') {
